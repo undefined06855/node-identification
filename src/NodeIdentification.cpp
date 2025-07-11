@@ -4,7 +4,7 @@
 ni::FullIdentification ni::identifyNode(cocos2d::CCNode* node) {
     if (!node) return {};
     
-    std::vector<Identification> ret = {};
+    std::vector<ni::Identification> ret = {};
 
     ret.push_back({
         .m_nodeID = node->getID(),
