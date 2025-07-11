@@ -4,14 +4,16 @@
 
 namespace ni {
 
+    
 struct Identification {
     std::string m_nodeID;
     int m_nodeChildIndex;
 };
+using FullIdentification = std::vector<Identification>;
 
-std::vector<Identification> identifyNode(cocos2d::CCNode* node);
-cocos2d::CCNode* findNode(std::vector<Identification> identification);
-cocos2d::CCNode* findNode(std::vector<Identification> identification, cocos2d::CCNode* parent);
+FullIdentification identifyNode(cocos2d::CCNode* node);
+cocos2d::CCNode* findNode(FullIdentification identification);
+cocos2d::CCNode* findNode(FullIdentification identification, cocos2d::CCNode* parent);
 
 namespace utils {
 
