@@ -15,10 +15,12 @@ target_link_libraries(${PROJECT_NAME} node-identification)
 
 and then use `ni::identifyNode` to get identification for a node:
 ```cpp
+#include <NodeIdentification.hpp>
 auto identification = ni::identifyNode(myNode);
 ```
 and `ni::findNode` to find it in the node tree:
 ```cpp
+#include <NodeIdentification.hpp>
 auto node = ni::findNode(identification);
 auto node = ni::findNode(identification, CCScene::get());
 ```
