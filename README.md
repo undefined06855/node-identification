@@ -2,7 +2,7 @@
 
 A simple library to give a unique identification for nodes in a node tree in a
 certain layer, to be able to be then found later quickly and easily for a Geode
-mod (or I guess just any cocos game if you have node ids but who is doing that)
+mod.
 
 ## Usage
 
@@ -24,3 +24,5 @@ and `ni::findNode` to find it in the node tree:
 auto node = ni::findNode(identification);
 auto node = ni::findNode(identification, CCScene::get());
 ```
+
+Example usage can be found in Controllable's CCLayer hook.
