@@ -7,9 +7,15 @@ ni::Identification::Identification(cocos2d::CCNode* node)
     , m_nodeChildIndex(ni::utils::getNodeChildIndex(node)) {}
 
 bool ni::Identification::operator==(const ni::Identification& rhs) const {
-    return m_nodeChildIndex == rhs.m_nodeChildIndex
-        && m_nodeID == rhs.m_nodeID
-        && m_nodeTypeInfo == rhs.m_nodeTypeInfo;
+    // maybe this isnt the best place to put this?
+    // if node id is empty, use child index, else use node id
+    if (m_nodeID == "" && rhs.m_nodeID == "") {
+        return m_nodeChildIndex == rhs.m_nodeChildIndex
+            && m_nodeTypeInfo == rhs.m_nodeTypeInfo;
+    } else {
+        return m_nodeID == rhs.m_nodeID
+            && m_nodeTypeInfo == rhs.m_nodeTypeInfo;
+    }
 }
 
 
