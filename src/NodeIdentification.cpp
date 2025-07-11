@@ -6,7 +6,7 @@ ni::Identification::Identification(cocos2d::CCNode* node)
     , m_nodeTypeInfo(ni::utils::getNodeTypeInfo(node))
     , m_nodeChildIndex(ni::utils::getNodeChildIndex(node)) {}
 
-bool ni::Identification::operator==(const Identification& rhs) const {
+bool ni::Identification::operator==(const ni::Identification& rhs) const {
     return m_nodeChildIndex == rhs.m_nodeChildIndex
         && m_nodeID == rhs.m_nodeID
         && m_nodeTypeInfo == rhs.m_nodeTypeInfo;
