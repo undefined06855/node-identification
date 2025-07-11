@@ -1,7 +1,7 @@
 #include "NodeIdentification.hpp"
 #include <Geode/utils/cocos.hpp>
 
-FullIdentification ni::identifyNode(cocos2d::CCNode* node) {
+ni::FullIdentification ni::identifyNode(cocos2d::CCNode* node) {
     if (!node) return {};
     
     std::vector<Identification> ret = {};
@@ -19,11 +19,11 @@ FullIdentification ni::identifyNode(cocos2d::CCNode* node) {
     return ret;
 }
 
-cocos2d::CCNode* ni::findNode(FullIdentification identification) {
+cocos2d::CCNode* ni::findNode(ni::FullIdentification identification) {
     return ni::findNode(identification, cocos2d::CCScene::get());
 }
 
-cocos2d::CCNode* ni::findNode(FullIdentification identification, cocos2d::CCNode* parent) {
+cocos2d::CCNode* ni::findNode(ni::FullIdentification identification, cocos2d::CCNode* parent) {
     if (identification.size() == 0) return parent;
     if (!parent) return nullptr;
 
