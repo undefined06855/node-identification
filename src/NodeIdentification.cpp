@@ -34,11 +34,7 @@ ni::FullIdentification ni::identifyNode(cocos2d::CCNode* node) {
     return ret;
 }
 
-cocos2d::CCNode* ni::findNode(ni::FullIdentification identification) {
-    return ni::findNode(identification, cocos2d::CCScene::get());
-}
-
-cocos2d::CCNode* ni::findNode(ni::FullIdentification identification, cocos2d::CCNode* parent) {
+cocos2d::CCNode* findNodeInternal(ni::FullIdentification identification, cocos2d::CCNode* parent) {
     if (identification.size() == 0) return parent;
     if (!parent) return nullptr;
 
@@ -54,6 +50,13 @@ cocos2d::CCNode* ni::findNode(ni::FullIdentification identification, cocos2d::CC
     return nullptr;
 }
 
+cocos2d::CCNode* ni::findNode(ni::FullIdentification identification) {
+    if (identification.size() == 0) return nullptr;
+    identification.pop_back(); // remove ccscene since thats always first
+    return ni::findNodeInternal(identification, cocos2d::CCScene::get());
+}
+
+// utils:
 
 int ni::utils::getNodeChildIndex(cocos2d::CCNode* node) {
     if (!node || !node->getParent()) return -1;

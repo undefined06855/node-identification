@@ -17,7 +17,6 @@ using FullIdentification = std::vector<Identification>;
 
 FullIdentification identifyNode(cocos2d::CCNode* node);
 cocos2d::CCNode* findNode(FullIdentification identification);
-cocos2d::CCNode* findNode(FullIdentification identification, cocos2d::CCNode* parent);
 
 namespace utils {
 
