@@ -43,7 +43,7 @@ cocos2d::CCNode* findNodeInternal(ni::FullIdentification identification, cocos2d
     for (auto node : geode::cocos::CCArrayExt<cocos2d::CCNode*>(parent->getChildren())) {
         if (ni::Identification(node) == id) {
             identification.pop_back();
-            return ni::findNode(identification, node);
+            return findNodeInternal(identification, node);
         }
     }
 
@@ -53,7 +53,7 @@ cocos2d::CCNode* findNodeInternal(ni::FullIdentification identification, cocos2d
 cocos2d::CCNode* ni::findNode(ni::FullIdentification identification) {
     if (identification.size() == 0) return nullptr;
     identification.pop_back(); // remove ccscene since thats always first
-    return ni::findNodeInternal(identification, cocos2d::CCScene::get());
+    return findNodeInternal(identification, cocos2d::CCScene::get());
 }
 
 // utils:
